@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useKeyPress } from "@/hooks";
 
 interface PotProps {
   note: number;
   src: string;
+  keybind: string;
 }
 
-export default function Pot({ note, src }: PotProps) {
+export default function Pot({ note, src, keybind }: PotProps) {
   const [audio] = useState(typeof Audio !== "undefined" && new Audio(src));
+  useKeyPress(keybind, () => startSound());
 
   return (
     <button
@@ -18,9 +21,8 @@ export default function Pot({ note, src }: PotProps) {
   );
 
   function startSound() {
-    if (audio) {
-      audio.currentTime = 0;
-      audio.play();
-    }
+    if (!audio) return;
+    audio.currentTime = 0;
+    audio.play();
   }
 }
