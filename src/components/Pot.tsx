@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
-import { useKeyPress } from "@/hooks";
+import { useKeyPress, useAnimation } from "@/hooks";
 import bonangSVG from "../../public/graphics/bonang.json";
+
 interface PotProps {
   note: number;
   src: string;
@@ -11,11 +12,19 @@ export default function Pot({ note, src, keybind }: PotProps) {
   const [audio, setAudio] = useState<HTMLAudioElement | undefined>(
     !typeof Audio ? new Audio(src) : undefined
   );
+
   // reload audio when the source changes
   useEffect(() => setAudio(new Audio(src)), [src]);
+
   // register startSound() method on key press
   useKeyPress(keybind, () => startSound());
-  const potElement = useRef<SVGSVGElement>(null);
+
+  const potElement = useRef<null | SVGSVGElement>(null);
+
+  const startAnimation = useAnimation({
+    target: potElement.current as null | HTMLElement,
+    animationClass: "animate-ping",
+  });
 
   return (
     <button
@@ -35,8 +44,6 @@ export default function Pot({ note, src, keybind }: PotProps) {
     if (!audio) return;
     audio.currentTime = 0;
     audio.play();
-    potElement.current?.classList.remove("animate-ping");
-    potElement.current?.classList.add("animate-ping");
-    setTimeout(() => potElement.current?.classList.remove("animate-ping"), 75);
+    startAnimation();
   }
 }

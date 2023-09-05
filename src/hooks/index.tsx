@@ -1,2 +1,3 @@
+import useAnimation from "./useAnimation";
 import useKeyPress from "./useKeyPress";
-export { useKeyPress };
+export { useAnimation, useKeyPress };
