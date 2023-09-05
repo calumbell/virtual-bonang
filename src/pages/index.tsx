@@ -1,9 +1,14 @@
-import { useState } from "react";
 import { Pot } from "@/components";
 import { bonangData } from "../../public/data";
+import { ChangeEventHandler, useState } from "react";
 
 export default function Home() {
-  const [laras] = useState<"slendro" | "pelog">("slendro");
+  type Laras = "slendro" | "pelog";
+  const [laras, setLaras] = useState<Laras>("slendro");
+  const onLarasChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
+    const laras = e.target.value;
+    if (["slendro", "pelog"].includes(laras)) setLaras(laras);
+  };
   return (
     <main>
       <h1 className="text-3xl">Bonang</h1>
@@ -16,6 +21,11 @@ export default function Home() {
           </div>
         ))}
       </section>
+
+      <select onChange={onLarasChange}>
+        <option value="slendro">Slendro</option>
+        <option value="pelog">Pelog</option>
+      </select>
     </main>
   );
 }
