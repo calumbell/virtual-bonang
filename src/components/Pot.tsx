@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from "react";
-import { useKeyPress, useAnimation } from "@/hooks";
+import { useRef } from "react";
+import { useAnimation, useAudio, useKeyPress } from "@/hooks";
 import bonangSVG from "../../public/graphics/bonang.json";
 
 interface PotProps {
@@ -9,12 +9,7 @@ interface PotProps {
 }
 
 export default function Pot({ note, src, keybind }: PotProps) {
-  const [audio, setAudio] = useState<HTMLAudioElement | undefined>(
-    !typeof Audio ? new Audio(src) : undefined
-  );
-
-  // reload audio when the source changes
-  useEffect(() => setAudio(new Audio(src)), [src]);
+  const startAudio = useAudio(src);
 
   // register startSound() method on key press
   useKeyPress(keybind, () => startSound());
@@ -41,9 +36,7 @@ export default function Pot({ note, src, keybind }: PotProps) {
   );
 
   function startSound() {
-    if (!audio) return;
-    audio.currentTime = 0;
-    audio.play();
+    startAudio();
     startAnimation();
   }
 }
