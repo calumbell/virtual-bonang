@@ -9,6 +9,8 @@ export default function LarasSelector({ setter }: LarasSelectorProps) {
   const onLarasChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
     if (!["slendro", "pelog"].includes(e.target.value)) return;
     setter(e.target.value as Laras);
+    // remove focus so pressing the 's' or 'p' key doesn't change laras
+    e.target.blur();
   };
 
   return (
