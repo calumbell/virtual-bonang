@@ -18,7 +18,7 @@ export default function Pot({ note, src, keybind }: PotProps) {
 
   const startAnimation = useAnimation({
     target: potElement.current as null | HTMLElement,
-    animationClass: "animate-ping",
+    animationClass: "animate-pulse",
   });
 
   return (

@@ -8,8 +8,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        pulse: "pulse 0.1s ease-in-out",
+      },
       fontFamily: {
         kepatihan: ["KepatihanPro"],
+      },
+      keyframes: {
+        pulse: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.1)", fill: "rgb(153 27 27)" },
+        },
       },
     },
   },
