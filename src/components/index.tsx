@@ -1,2 +1,4 @@
+import LarasSelector from "./LarasSelector";
 import Pot from "./Pot";
-export { Pot };
+
+export { LarasSelector, Pot };
