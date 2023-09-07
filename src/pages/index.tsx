@@ -8,8 +8,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col jus w-screen h-screen">
-      <header className="flex justify-between">
-        <h1 className="text-3xl">Bonang</h1>
+      <header className="flex justify-between h-12">
+        <h1 className="text-3xl bg-red-800 px-4 py-1 text-white">Bonang</h1>
         <LarasSelector setter={setLaras} />
       </header>
 
@@ -17,15 +17,15 @@ export default function Home() {
         <section className="flex flex-col align-middle">
           {bonangData[laras].map((row, i) => (
             <div className="flex gap-2 my-2 justify-center" key={i}>
-              {row.map((pot, i) => (
-                <Pot {...pot} key={i} />
+              {row.map((pot) => (
+                <Pot {...pot} key={pot.src} />
               ))}
             </div>
           ))}
         </section>
       </main>
 
-      <footer className="text-center">
+      <footer className="text-center bg-red-800 text-white">
         <span>
           Made with love by <a href="https://github.com/calumbell">Calum</a>
         </span>

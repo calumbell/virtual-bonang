@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useAnimation, useAudio, useKeyPress } from "@/hooks";
-import bonangSVG from "../../public/graphics/bonang.json";
+import bonangSVG from "../../public/graphics/bonang-low.json";
 
 interface PotProps {
   note: number;
