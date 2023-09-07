@@ -5,7 +5,7 @@ export default function useKeyPress(key: string, action: Function) {
     let keyIsDown = false;
 
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === key && !keyIsDown) {
+      if (e.key.toLowerCase() === key && !keyIsDown) {
         keyIsDown = true;
         action();
       }
