@@ -1,6 +1,5 @@
-import { LarasSelector, Pot } from "@/components";
+import { Bonang, LarasSelector } from "@/components";
 import { Laras } from "@/types";
-import { bonangData } from "../../public/data";
 import { useState } from "react";
 
 export default function Home() {
@@ -14,15 +13,7 @@ export default function Home() {
       </header>
 
       <main className="mb-auto mt-auto mx-5">
-        <section className="flex flex-col align-middle">
-          {bonangData[laras].map((row, i) => (
-            <div className="flex gap-2 my-2 justify-center" key={i}>
-              {row.map((pot) => (
-                <Pot {...pot} key={pot.src} />
-              ))}
-            </div>
-          ))}
-        </section>
+        <Bonang laras={laras} />
       </main>
 
       <footer className="text-center bg-red-800 text-white">
