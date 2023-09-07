@@ -3,7 +3,7 @@ import { useAnimation, useAudio, useKeyPress } from "@/hooks";
 import bonangSVG from "../../public/graphics/bonang-low.json";
 
 interface PotProps {
-  note: number;
+  note: string;
   src: string;
   keybind: string;
 }
