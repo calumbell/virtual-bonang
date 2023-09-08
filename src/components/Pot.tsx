@@ -1,14 +1,20 @@
 import { useRef } from "react";
 import { useAnimation, useAudio, useKeyPress } from "@/hooks";
-import bonangSVG from "../../public/graphics/bonang-low.json";
+import { bonangSvgData } from "../../public/graphics";
 
 interface PotProps {
   note: string;
   src: string;
   keybind: string;
+  showKeybind?: boolean;
 }
 
-export default function Pot({ note, src, keybind }: PotProps) {
+export default function Pot({
+  note,
+  src,
+  keybind,
+  showKeybind = false,
+}: PotProps) {
   const startAudio = useAudio(src);
 
   // register startSound() method on key press
@@ -26,10 +32,12 @@ export default function Pot({ note, src, keybind }: PotProps) {
       className="w-max flex relative px-2 py-1 aspect-square rounded-full bg-red-50 flex-col justify-center"
       onClick={startSound}
     >
-      <svg {...bonangSVG.attributes} className="w-full" ref={potElement}>
-        <path {...bonangSVG.path} className="transition-all" />
+      <svg {...bonangSvgData.attributes} className="w-full" ref={potElement}>
+        {bonangSvgData.paths.map((path, i) => (
+          <path {...path} className="transition-all" key={i} />
+        ))}
       </svg>
-      <p className="absolute font-kepatihan text-white rounded-full bg-red-800 aspect-square h-8 w-8 m-0 bottom-0">
+      <p className="absolute bottom-0 font-kepatihan text-white aspect-square rounded-full h-8 w-8 bg-red-800">
         {note}
       </p>
     </button>
