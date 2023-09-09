@@ -1,4 +1,4 @@
-import { MutableRefObject, Ref, useEffect } from "react";
+import { MutableRefObject, useEffect } from "react";
 export default function useClick(
   ref: MutableRefObject<null | EventTarget>,
   callback: Function

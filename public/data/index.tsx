@@ -1,8 +1,10 @@
 import slendroBonang from "./slendroBonang";
-import pelogBonang from "./pelogBonang";
+import pelogBemBonang from "./pelogBemBonang";
+import pelogBarangBonang from "./pelogBarangBonang";
 
 const bonangData = {
   slendro: slendroBonang,
-  pelog: pelogBonang,
+  pelogBem: pelogBemBonang,
+  pelogBarang: pelogBarangBonang,
 };
 export { bonangData };

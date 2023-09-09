@@ -1,1 +1,1 @@
-export type Laras = "slendro" | "pelog";
+export type Laras = "slendro" | "pelogBem" | "pelogBarang";
