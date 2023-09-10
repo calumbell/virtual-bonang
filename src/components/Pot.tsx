@@ -9,12 +9,7 @@ interface PotProps {
   showKeybind?: boolean;
 }
 
-export default function Pot({
-  note,
-  src,
-  keybind,
-  showKeybind = false,
-}: PotProps) {
+export default function Pot({ note, src, keybind, showKeybind }: PotProps) {
   const startAudio = useAudio(src);
 
   // register startSound() method on key press
@@ -37,8 +32,15 @@ export default function Pot({
           <path {...path} className="transition-all" key={i} />
         ))}
       </svg>
-      <p className="absolute bottom-0 font-kepatihan text-white aspect-square rounded-full h-8 w-8 bg-red-800">
-        {note}
+      <p className="absolute bottom-0 w- flex gap-1 justify-between  text-white ">
+        <span className="aspect-square rounded-full h-8 w-8 bg-red-800 font-kepatihan">
+          {note}
+        </span>
+        {showKeybind && (
+          <span className="h-8 w-8 rounded-full bg-gray-500 pt-1">
+            {keybind}
+          </span>
+        )}
       </p>
     </button>
   );
