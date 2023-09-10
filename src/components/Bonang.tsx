@@ -1,12 +1,11 @@
-import { Pot } from "@/components";
+import { KeyboardButton, LarasSelector, Pot } from "@/components";
 import { Laras } from "@/types";
 import { bonangData } from "../../public/data";
+import { useState } from "react";
 
-interface BonangProps {
-  laras: Laras;
-  showKeybinds: boolean;
-}
-export default function Bonang({ laras, showKeybinds = false }: BonangProps) {
+export default function Bonang() {
+  const [showKeybinds, setShowKeybinds] = useState<boolean>(false);
+  const [laras, setLaras] = useState<Laras>("slendro");
   return (
     <section className="flex flex-col align-middle">
       {bonangData[laras].map((row, i) => (
@@ -16,6 +15,11 @@ export default function Bonang({ laras, showKeybinds = false }: BonangProps) {
           ))}
         </div>
       ))}
+      {/* UI Ribbon */}
+      <div className="flex h-12 mt-5 justify-center">
+        <KeyboardButton state={{ showKeybinds, setShowKeybinds }} />
+        <LarasSelector state={{ setLaras }} />
+      </div>
     </section>
   );
 }

@@ -16,7 +16,6 @@ export default function Pot({ note, src, keybind, showKeybind }: PotProps) {
   useKeyPress(keybind, () => startSound());
 
   const potElement = useRef<null | SVGSVGElement>(null);
-
   const startAnimation = useAnimation({
     target: potElement.current as null | HTMLElement,
     animationClass: "animate-pulse",
@@ -32,8 +31,8 @@ export default function Pot({ note, src, keybind, showKeybind }: PotProps) {
           <path {...path} className="transition-all" key={i} />
         ))}
       </svg>
-      <p className="absolute bottom-0 w- flex gap-1 justify-between  text-white ">
-        <span className="aspect-square rounded-full h-8 w-8 bg-red-800 font-kepatihan">
+      <p className="absolute bottom-0 flex gap-1 justify-between  text-white ">
+        <span className="aspect-square rounded-full h-8 w-8 bg-red-800 font-kepatihan hidden sm:block">
           {note}
         </span>
         {showKeybind && (
