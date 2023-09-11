@@ -1,6 +1,4 @@
-import { Bonang, KeyboardButton, LarasSelector } from "@/components";
-import { Laras } from "@/types";
-import { useState } from "react";
+import { Bonang } from "@/components";
 
 export default function Home() {
   return (

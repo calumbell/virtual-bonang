@@ -21,7 +21,7 @@ export default function LarasSelector({ state }: LarasSelectorProps) {
   return (
     <select
       onChange={onLarasChange}
-      className="px-4 py-3 hover:bg-red-700 bg-red-800 text-white  tracking-wider"
+      className="h-full px-4 py-3 hover:bg-red-700 bg-red-800 text-white  tracking-wider"
     >
       <option value="slendro">Slendro</option>
       <option value="pelogBem">Pelog (Bem)</option>

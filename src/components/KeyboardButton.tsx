@@ -11,8 +11,8 @@ export default function KeyboardIcon({ state }: KeyboardIconProps) {
   const { showKeybinds, setShowKeybinds } = state;
   return (
     <button
-      className={`h-full aspect-square transition-all hover:bg-red-700 ${
-        showKeybinds ? "bg-gray-700 border-red-800 border-solid" : "bg-red-800"
+      className={`h-full relative aspect-square transition-all hover:bg-red-700 ${
+        showKeybinds ? "bg-gray-700" : "bg-red-800"
       }`}
       onClick={() => setShowKeybinds(!showKeybinds)}
     >

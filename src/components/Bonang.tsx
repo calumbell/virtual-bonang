@@ -16,10 +16,16 @@ export default function Bonang() {
         </div>
       ))}
       {/* UI Ribbon */}
-      <div className="flex h-12 mt-5 justify-center">
-        <KeyboardButton state={{ showKeybinds, setShowKeybinds }} />
-        <LarasSelector state={{ setLaras }} />
-      </div>
+      <ul className="flex h-12 mt-5 justify-center ml-auto">
+        {[
+          <KeyboardButton state={{ showKeybinds, setShowKeybinds }} key="1" />,
+          <LarasSelector state={{ setLaras }} key="2" />,
+        ].map((component, i) => (
+          <li className="h-12" key={i}>
+            {component}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
