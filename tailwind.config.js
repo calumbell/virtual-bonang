@@ -20,6 +20,9 @@ module.exports = {
           "50%": { transform: "scale(1.1)", fill: "rgb(153 27 27)" },
         },
       },
+      screens: {
+        xs: "420px",
+      },
     },
   },
   plugins: [],
