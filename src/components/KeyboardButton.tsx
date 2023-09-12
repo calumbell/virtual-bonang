@@ -11,14 +11,14 @@ export default function KeyboardIcon({ state }: KeyboardIconProps) {
   const { showKeybinds, setShowKeybinds } = state;
   return (
     <button
-      className={`h-full relative aspect-square transition-all hover:bg-red-700 ${
+      className={`h-full w-8 sm:w-12  transition-colors hover:bg-red-700 ${
         showKeybinds ? "bg-gray-700" : "bg-red-800"
       }`}
       onClick={() => setShowKeybinds(!showKeybinds)}
     >
       <svg
         {...keyboardSvgData.attributes}
-        className="fill-none m-2 stroke-white stroke-1 max-h-min"
+        className="fill-none m-1 stroke-white stroke-1"
       >
         {keyboardSvgData.paths.map((path, i) => (
           <path {...path} key={i} />
