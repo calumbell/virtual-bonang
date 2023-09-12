@@ -23,7 +23,7 @@ export default function Pot({ note, src, keybind, showKeybind }: PotProps) {
 
   return (
     <button
-      className="w-max flex relative px-2 py-1 aspect-square rounded-full bg-red-50 flex-col justify-center"
+      className="w-full flex relative px-2 py-1 aspect-square rounded-full bg-red-50 flex-col justify-center"
       onClick={startSound}
     >
       <svg {...bonangSvgData.attributes} className="w-full" ref={potElement}>
