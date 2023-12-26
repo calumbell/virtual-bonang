@@ -1,4 +1,4 @@
-import { Bonang, BonangOptions, Footer } from "@/components";
+import { Bonang, BonangOptions, Footer, Seo } from "@/components";
 import { useAppState } from "@/hooks";
 
 export default function Home() {
@@ -6,9 +6,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col jus w-screen h-screen">
+      <Seo />
       <header className="flex justify-between h-8 sm:h-12">
         <h1 className="inline align-middle font-thing h-full sm:text-xl sm:pt-2 p-1 bg-red-800 px-4 text-white">
-          Bonang
+          Virtual Bonang
         </h1>
         <BonangOptions state={state} />
       </header>
