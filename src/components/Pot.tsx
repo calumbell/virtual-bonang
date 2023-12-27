@@ -1,9 +1,11 @@
 import { useRef } from "react";
+import { Note } from "@/types";
 import { useAnimation, useAudio, useKeyPress } from "@/hooks";
+import { kepatihanSymbolToText } from "@/utils";
 import { bonangSvgData } from "../../public/graphics";
 
 interface PotProps {
-  note: string;
+  note: Note;
   src: string;
   keybind: string;
   showKeybind?: boolean;
@@ -26,11 +28,15 @@ export default function Pot({ note, src, keybind, showKeybind }: PotProps) {
       className="w-full flex relative px-2 py-1 aspect-square rounded-full bg-red-50 flex-col justify-center"
       onClick={startSound}
     >
-      <svg {...bonangSvgData.attributes} className="w-full" ref={potElement}>
+      <svg {...bonangSvgData.attributes} className="w-full" ref={potElement} aria-hidden="true">
         {bonangSvgData.paths.map((path, i) => (
           <path {...path} className="transition-all" key={i} />
         ))}
       </svg>
+      {/* screenreader alt for Bonang SVG */}
+      <span className="sr-only">
+        {`Bonang Pot ${kepatihanSymbolToText(note)}`}
+      </span>
       <p className="absolute bottom-0 flex gap-1 justify-between  text-white ">
         <span className="aspect-square rounded-full h-8 w-8 bg-red-800 font-kepatihan hidden sm:block">
           {note}
