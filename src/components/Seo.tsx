@@ -7,7 +7,8 @@ export default function Seo({
 }) {
   return (
     <Head>
-      <title>{ title }</title>
+      <title>{title}</title>
+      <link rel="icon" href="/favicon.ico" sizes="any" />
       <meta charSet="UTF-8" />
       <meta property="description" content={description} />
       <meta property="keywords" content={keywords} />
@@ -15,5 +16,5 @@ export default function Seo({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
     </Head>
-  )
+  );
 }
