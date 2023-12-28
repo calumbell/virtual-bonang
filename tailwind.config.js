@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        "2xs": "0.5rem",
+      },
       animation: {
         pulse: "pulse 0.1s ease-in-out",
       },

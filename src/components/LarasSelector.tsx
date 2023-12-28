@@ -10,22 +10,42 @@ interface LarasSelectorProps {
 
 export default function LarasSelector({ state }: LarasSelectorProps) {
   const { setLaras } = state;
+
+  // Callback: on modal change update the state
   const onLarasChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
-    if (!["slendro", "pelogBem", "pelogBarang"].includes(e.target.value))
-      return;
-    setLaras(e.target.value as Laras);
-    // remove focus so pressing the 's' or 'p' key doesn't change laras
-    e.target.blur();
+    const validLaras = ["slendro", "pelogBem", "pelogBarang"];
+    if (!validLaras.includes(e.target.value)) return;
+    setLaras(e.target.value);
+    e.target.blur(); // this stops the 's' or 'p' keys changing the laras
   };
 
   return (
-    <select
-      onChange={onLarasChange}
-      className="h-full px-4 leading-none w-full text-sm sm:text-lg hover:bg-red-700 bg-red-800 text-white  tracking-wider"
+    <div
+      className="flex flex-col bg-red-800"
+      aria-label="Laras (Tuning) Selector"
     >
-      <option value="slendro">Slendro</option>
-      <option value="pelogBem">Pelog (Bem)</option>
-      <option value="pelogBarang">Pelog (Barang)</option>
-    </select>
+      {/* Label */}
+      <div className="p-0 m-0 flex items-center">
+        <label
+          htmlFor="laras-selector"
+          className="bg-white max-w-min uppercase whitespace-nowrap font-bold text-red-800 px-1 text-2xs sm:text-xs border-red-800"
+        >
+          Laras / Tuning
+        </label>
+        <div className="bg-white w-full h-[2px] mb-1" />
+      </div>
+
+      {/* Drop Down Menu */}
+      <select
+        onChange={onLarasChange}
+        className="leading-none px-4 text-sm sm:text-lg h-full hover:bg-red-700 text-white bg-red-800 tracking-wider"
+        aria-label="Laras (Tuning) Dropdown"
+        id="laras-selector"
+      >
+        <option value="slendro">Slendro</option>
+        <option value="pelogBem">Pelog (Bem)</option>
+        <option value="pelogBarang">Pelog (Barang)</option>
+      </select>
+    </div>
   );
 }
