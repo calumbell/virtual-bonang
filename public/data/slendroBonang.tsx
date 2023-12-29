@@ -26,7 +26,7 @@ const upperRack: Array<PotData> = [
     src: "/audio/slendro/bnsl-1h.mp3",
     keybind: "t",
   },
-]
+];
 
 const lowerRack: Array<PotData> = [
   {
@@ -54,7 +54,7 @@ const lowerRack: Array<PotData> = [
     src: "/audio/slendro/bnsl-6.mp3",
     keybind: "g",
   },
-]
-const slendroBonang = [upperRack, lowerRack];
+];
 
+const slendroBonang = [upperRack, lowerRack];
 export default slendroBonang;

@@ -35,7 +35,7 @@ const upperRack: Array<PotData> = [
     note: "7",
     src: "/audio/pelog/bnpl-7h.wav",
     keybind: "u",
-  }
+  },
 ];
 
 const lowerRack: Array<PotData> = [
@@ -74,7 +74,7 @@ const lowerRack: Array<PotData> = [
     src: "/audio/pelog/bnpl-4.wav",
     keybind: "j",
   },
-]
+];
 
-const pelogBemBonang = [upperRack, lowerRack]
+const pelogBemBonang = [upperRack, lowerRack];
 export default pelogBemBonang;
