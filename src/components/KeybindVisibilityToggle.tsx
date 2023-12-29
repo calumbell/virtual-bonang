@@ -14,7 +14,7 @@ export default function KeybindVisibilityToggle({
 
   return (
     <button
-      className={`h-full w-8 sm:w-12  transition-colors hover:bg-red-700 ${
+      className={`h-full w-8 sm:w-12 transition-colors hover:bg-red-700 ${
         showKeybinds ? "bg-gray-700" : "bg-red-800"
       }`}
       onClick={() => setShowKeybinds(!showKeybinds)}
@@ -33,7 +33,7 @@ export default function KeybindVisibilityToggle({
       </svg>
 
       {/* Alt text for screen-readers */}
-      <label className="sr-only">Toggle Keybind Visibility</label>
+      <label className="sr-only text-white">Toggle Keybind Visibility</label>
     </button>
   );
 }

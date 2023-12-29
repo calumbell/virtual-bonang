@@ -11,7 +11,12 @@ interface PotProps {
   showKeybind?: boolean;
 }
 
-export default function BonangPot({ note, src, keybind, showKeybind }: PotProps) {
+export default function BonangPot({
+  note,
+  src,
+  keybind,
+  showKeybind,
+}: PotProps) {
   const startAudio = useAudio(src);
 
   // register startSound() method on key press
@@ -19,7 +24,7 @@ export default function BonangPot({ note, src, keybind, showKeybind }: PotProps)
 
   const potElement = useRef<null | SVGSVGElement>(null);
 
-  // set up animation 
+  // set up animation
   const startAnimation = useAnimation({
     target: potElement.current as null | HTMLElement,
     animationClass: "animate-pulse",
