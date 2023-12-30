@@ -27,7 +27,7 @@ export default function LarasSelector({ state }: LarasSelectorProps) {
       {/* Label */}
       <div className="p-0 m-0 flex items-center">
         <label
-          htmlFor="laras-selector"
+          aria-hidden="true"
           className="bg-white max-w-min uppercase whitespace-nowrap font-bold text-red-800 px-1 text-2xs sm:text-xs border-red-800"
         >
           Laras / Tuning
@@ -42,9 +42,9 @@ export default function LarasSelector({ state }: LarasSelectorProps) {
         aria-label="Laras (Tuning) Dropdown"
         id="laras-selector"
       >
-        <option value="slendro">Slendro</option>
-        <option value="pelogBem">Pelog (Bem)</option>
-        <option value="pelogBarang">Pelog (Barang)</option>
+        <option value="slendro">Laras Slendro</option>
+        <option value="pelogBem">Laras Pelog (Bem)</option>
+        <option value="pelogBarang">Laras Pelog (Barang)</option>
       </select>
     </div>
   );

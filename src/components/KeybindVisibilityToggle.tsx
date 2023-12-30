@@ -20,6 +20,7 @@ export default function KeybindVisibilityToggle({
       onClick={() => setShowKeybinds(!showKeybinds)}
       aria-label="Toggle Keybind Visibility"
       aria-pressed={showKeybinds ? "true" : "false"}
+      tabIndex={0}
     >
       {/* Keyboard Icon */}
       <svg
