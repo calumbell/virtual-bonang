@@ -1,4 +1,5 @@
 import { keyboardSvgData } from "../../public/graphics";
+import { Icon } from "@/components";
 
 interface KeybindVisibilityToggleProps {
   state: {
@@ -23,18 +24,10 @@ export default function KeybindVisibilityToggle({
       tabIndex={0}
     >
       {/* Keyboard Icon */}
-      <svg
-        {...keyboardSvgData.attributes}
+      <Icon
+        svgData={keyboardSvgData}
         className="fill-none m-1 stroke-white stroke-1 not-sr-only"
-        aria-hidden="true"
-      >
-        {keyboardSvgData.paths.map((path, i) => (
-          <path {...path} key={i} />
-        ))}
-      </svg>
-
-      {/* Alt text for screen-readers */}
-      <label className="sr-only text-white">Toggle Keybind Visibility</label>
+      />
     </button>
   );
 }

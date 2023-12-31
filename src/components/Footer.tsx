@@ -1,3 +1,4 @@
+import { Icon } from "@/components";
 import { githubLogoSvgData } from "../../public/graphics";
 
 export default function Footer() {
@@ -15,15 +16,10 @@ export default function Footer() {
       >
         <span className="font-normal">Calum</span>
         {/* GitHub logo */}
-        <svg
+        <Icon
+          svgData={githubLogoSvgData}
           className="ml-1 h-full inline fill-white bg-transparent rounded-3xl"
-          aria-hidden="true"
-          {...githubLogoSvgData.attributes}
-        >
-          {githubLogoSvgData.paths.map((path, i) => (
-            <path {...path} key={i} />
-          ))}
-        </svg>
+        />
       </a>
     </footer>
   );

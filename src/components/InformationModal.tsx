@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { infoIconSvgData } from "../../public/graphics";
+import { Icon } from ".";
 
 interface InformationModalProps {
   content: string;
@@ -17,15 +18,7 @@ export default function InformationModal({
         aria-label="Open Application Instructions"
         role="button"
       >
-        <svg
-          {...infoIconSvgData.attributes}
-          className="fill-white m-1"
-          aria-hidden="true"
-        >
-          {infoIconSvgData.paths.map((path, i) => (
-            <path {...path} key={i} />
-          ))}
-        </svg>
+        <Icon svgData={infoIconSvgData} className="fill-white m-1" />
       </button>
 
       {/* Modal Menu */}

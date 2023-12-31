@@ -3,6 +3,7 @@ import { Note } from "@/types";
 import { useAnimation, useAudio, useKeyPress } from "@/hooks";
 import { kepatihanSymbolToText } from "@/utils";
 import { bonangSvgData } from "../../public/graphics";
+import Icon from "./Icon";
 
 interface PotProps {
   note: Note;
@@ -35,16 +36,11 @@ export default function BonangPot({
       className="w-full flex relative px-2 py-1 aspect-square rounded-full bg-red-50 flex-col justify-center"
       onClick={startSound}
     >
-      <svg
-        {...bonangSvgData.attributes}
-        className="w-full"
-        ref={potElement}
-        aria-hidden="true"
-      >
-        {bonangSvgData.paths.map((path, i) => (
-          <path {...path} className="transition-all" key={i} />
-        ))}
-      </svg>
+      <Icon
+        svgData={bonangSvgData}
+        className="w-full transition-all"
+        svgRef={potElement}
+      />
       {/* screenreader alt for Bonang SVG */}
       <span className="sr-only">
         {`Bonang Pot ${kepatihanSymbolToText(note)}`}
