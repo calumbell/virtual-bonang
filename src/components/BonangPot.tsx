@@ -23,9 +23,8 @@ export default function BonangPot({
   // register startSound() method on key press
   useKeyPress(keybind, () => startSound());
 
-  const potElement = useRef<null | SVGSVGElement>(null);
-
   // set up animation
+  const potElement = useRef<null | SVGSVGElement>(null);
   const startAnimation = useAnimation({
     target: potElement.current as null | HTMLElement,
     animationClass: "animate-pulse",

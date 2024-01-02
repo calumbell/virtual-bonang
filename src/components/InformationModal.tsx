@@ -2,13 +2,7 @@ import { useState } from "react";
 import { infoIconSvgData } from "../../public/graphics";
 import { Icon } from ".";
 
-interface InformationModalProps {
-  content: string;
-}
-
-export default function InformationModal({
-  content = "",
-}: InformationModalProps) {
+export default function InformationModal() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -23,7 +17,7 @@ export default function InformationModal({
 
       {/* Modal Menu */}
       {isOpen && (
-        <section
+        <article
           className="absolute bg-white/90 m-10 z-10 w-96 p-4 border-black border"
           onClick={() => setIsOpen(false)}
           aria-label="Application Instructions"
@@ -32,10 +26,36 @@ export default function InformationModal({
           <h2 className="text-center uppercase text-xl font-bold text-red-800">
             Instructions
           </h2>
-          <p className="text-sm md:text-base" tabIndex={0}>
-            {content}
-          </p>
-        </section>
+          <section
+            className="text-sm md:text-base flex flex-col gap-2"
+            tabIndex={0}
+          >
+            <p>
+              <span className="font-bold uppercase">To Play</span> either click
+              on the pots below or use your keyboard (Q to U for the top row, A
+              to J for the bottom)
+            </p>
+            <p>
+              <span className="font-bold uppercase">The Bonang</span> is an
+              instrument in the Javanese Gamelan. It is formed of two rows of
+              small tuned gong chimes arranged horizontally and played with a
+              pair of padded mallets.
+            </p>
+
+            <p>
+              <span className="font-bold uppercase">NOTES</span> in gamelan are
+              numbered from 1 to 7. A dot below or above indicates the same note
+              but at a high or lower register/octave.
+            </p>
+            <p>
+              <span className="font-bold uppercase">LARAS</span> can be loosely
+              translated from Javanese as
+              <span className="italic"> tuning system</span>. There are two
+              laras in Javanese gamelan; laras slendro, which has 5 notes, and
+              laras pelog, which has 7.
+            </p>
+          </section>
+        </article>
       )}
     </>
   );

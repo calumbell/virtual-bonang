@@ -7,14 +7,13 @@ import {
   LarasSelector,
 } from "@/components";
 import { useAppState } from "@/hooks";
-import instructions from "../../public/copy/instructions";
 
 export default function Home() {
   const state = useAppState();
   const { showKeybinds, setShowKeybinds, laras, setLaras } = state;
 
   return (
-    <div className="flex flex-col jus w-screen h-screen">
+    <div className="flex flex-col w-screen h-screen">
       <Seo />
       <header
         className="flex justify-between h-8 sm:h-12"
@@ -25,7 +24,7 @@ export default function Home() {
           <h1 className="inline align-middle whitespace-nowrap uppercase font-thing h-full tracking-wider sm:text-xl sm:pt-2 p-1 bg-red-800 px-4 text-white">
             Virtual Bonang
           </h1>
-          <InformationModal content={instructions} />
+          <InformationModal />
         </div>
 
         {/* Right side of banner */}
