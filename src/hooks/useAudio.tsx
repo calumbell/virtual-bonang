@@ -8,7 +8,7 @@ export default function useAudio(src: string) {
 
   return () => {
     // To reduce clicking on retriggers, first fade out previous sound
-    const decrementVolume = () => (audio.volume /= 16);
+    const decrementVolume = () => (audio.volume /= 8);
     const interval = setInterval(decrementVolume, 1);
 
     // Wait ~10 ms for audio to fade out before restarting

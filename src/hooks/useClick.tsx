@@ -1,4 +1,6 @@
 import { MutableRefObject, useEffect } from "react";
+
+// useClick() runs a callback function when an element is clicked
 export default function useClick(
   ref: MutableRefObject<null | EventTarget>,
   callback: Function
