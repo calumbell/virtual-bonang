@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { infoIconSvgData } from "../../public/graphics";
 import { Icon } from ".";
+import { useKeyPress } from "@/hooks";
 
 export default function InformationModal() {
   const [isOpen, setIsOpen] = useState(false);
+  useKeyPress("Escape", () => setIsOpen(false));
   return (
     <>
       <button
@@ -27,32 +29,31 @@ export default function InformationModal() {
             Instructions
           </h2>
           <section
-            className="text-sm md:text-base flex flex-col gap-2 outline-none focus-visible:ring ring-red-800"
+            className="text-sm md:text-base outline-none focus-visible:ring ring-red-800"
             tabIndex={0}
           >
-            <p>
-              <span className="font-bold uppercase">To Play</span> either click
-              on the pots below or use your keyboard (Q to U for the top row, A
-              to J for the bottom)
+            <h3 className="font-bold uppercase">To Play</h3>
+            <p className="mb-2">
+              Click on the pots below or use your keyboard (Q to U for the top
+              row, A to J for the bottom)
             </p>
-            <p>
-              <span className="font-bold uppercase">The Bonang</span> is an
-              instrument in the Javanese Gamelan. It is formed of two rows of
-              small tuned gong chimes arranged horizontally and played with a
-              pair of padded mallets.
+            <h3 className="font-bold uppercase">What is the Bonang?</h3>
+            <p className="mb-2">
+              The Bonang is an instrument in the Javanese Gamelan. It is formed
+              of two rows of small tuned gong chimes arranged horizontally and
+              played with a pair of padded mallets.
             </p>
 
-            <p>
-              <span className="font-bold uppercase">NOTES</span> in gamelan are
-              numbered from 1 to 7. A dot below or above indicates the same note
-              but at a high or lower register/octave.
+            <h3 className="font-bold uppercase">Notes</h3>
+            <p className="mb-2">
+              Notes in gamelan are numbered from 1 to 7. A dot below or above
+              indicates the same note but at a high or lower register/octave.
             </p>
-            <p>
-              <span className="font-bold uppercase">LARAS</span> can be loosely
-              translated from Javanese as
-              <span className="italic"> tuning system</span>. There are two
-              laras in Javanese gamelan; laras slendro, which has 5 notes, and
-              laras pelog, which has 7.
+            <h3 className="font-bold uppercase">Laras</h3>
+            <p className="mb-2">
+              Laras can be loosely translated from Javanese as tuning system.
+              There are two laras in Javanese gamelan; laras slendro, which has
+              5 notes, and laras pelog, which has 7.
             </p>
           </section>
         </article>

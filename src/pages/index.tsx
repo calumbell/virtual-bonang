@@ -28,7 +28,7 @@ export default function Home() {
         </div>
 
         {/* Right side of banner */}
-        <div className="flex flex-row">
+        <div className="flex flex-row bg-red-800">
           <KeybindVisibilityToggle state={{ showKeybinds, setShowKeybinds }} />
           <LarasSelector state={{ laras, setLaras }} />
         </div>

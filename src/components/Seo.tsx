@@ -8,7 +8,6 @@ export default function Seo({
     ? "" /* TODO: Production URL tbd */
     : "http://localhost:3000",
 }) {
-  console.log(`${url}/opengraph_image.svg`);
   return (
     <Head>
       <title>{title}</title>
