@@ -8,7 +8,7 @@ export default function InformationModal() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-full aspect-square p-1 sm:p-2 bg-red-800 hover:bg-red-700 focus:bg-red-700 transition-color"
+        className="h-full aspect-square p-1 sm:p-2 bg-red-800 hover:bg-red-700 focus-visible:ring ring-black focus:bg-red-700 transition-color outline-none "
         aria-label="Open Application Instructions"
         role="button"
       >
@@ -27,7 +27,7 @@ export default function InformationModal() {
             Instructions
           </h2>
           <section
-            className="text-sm md:text-base flex flex-col gap-2"
+            className="text-sm md:text-base flex flex-col gap-2 outline-none focus-visible:ring ring-red-800"
             tabIndex={0}
           >
             <p>

@@ -13,6 +13,7 @@ export default function Footer() {
         target="_blank"
         className="hover:underline"
         aria-label="Link to Calum's GitHub page"
+        tabIndex={0}
       >
         <span className="font-normal">Calum</span>
         {/* GitHub logo */}

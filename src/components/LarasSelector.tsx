@@ -38,7 +38,7 @@ export default function LarasSelector({ state }: LarasSelectorProps) {
       {/* Drop Down Menu */}
       <select
         onChange={onLarasChange}
-        className="leading-none px-4 text-sm sm:text-lg h-full hover:bg-red-700 text-white bg-red-800 tracking-wider"
+        className="leading-none px-4 text-sm mr-0.5 sm:text-lg h-full hover:bg-red-700 text-white bg-red-800 tracking-wider outline-none focus-visible:ring ring-black"
         aria-label="Laras (Tuning) Dropdown"
         id="laras-selector"
       >

@@ -32,7 +32,7 @@ export default function BonangPot({
 
   return (
     <button
-      className="w-full flex relative px-2 py-1 aspect-square rounded-full bg-red-50 flex-col justify-center"
+      className="w-full flex relative px-2 py-1 aspect-square rounded-full bg-red-50 flex-col justify-center outline-none focus-visible:ring ring-offset-4 ring-red-800"
       onClick={startSound}
     >
       <Icon
@@ -46,7 +46,7 @@ export default function BonangPot({
       </span>
       <p className="absolute bottom-0 flex gap-1 justify-between  text-white ">
         <span
-          className="aspect-square rounded-full h-8 w-8 bg-red-800 font-kepatihan hidden sm:block"
+          className="aspect-square rounded-full h-8 w-8 bg-red-800 ring-2 ring-red-500 font-kepatihan hidden sm:block"
           aria-hidden="true"
         >
           {note}
