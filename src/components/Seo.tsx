@@ -5,7 +5,7 @@ export default function Seo({
   description = "Pracitce playing the Bonang instrument from the Javanese Gamelan online.",
   keywords = "Bonang, Gamelan, Javanese Gamelan, Bonang Barung, Virtual Bonang, Virtual Gamelan, Gamelan Simulator, Digital Gamelan, Gamelan Online",
   url = process.env.NODE_ENV == "production"
-    ? "" /* TODO: Production URL tbd */
+    ? "https://www.bonang.co.uk"
     : "http://localhost:3000",
 }) {
   return (
