@@ -14,6 +14,7 @@ export default function useAudio(src: string) {
     // Wait ~10 ms for audio to fade out before restarting
     setTimeout(() => {
       clearInterval(interval);
+      audio.load();
       audio.volume = 1;
       audio.currentTime = 0;
       audio.play();
