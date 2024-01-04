@@ -13,22 +13,22 @@ export default function Home() {
   const { showKeybinds, setShowKeybinds, laras, setLaras } = state;
 
   return (
-    <div className="flex flex-col w-screen h-screen">
+    <div className="flex flex-col w-screen h-screen overflow-hidden">
       <Seo />
       <header
-        className="flex justify-between h-8 sm:h-12"
+        className="flex justify-between h-8 sm:h-12 bg-red-800"
         aria-label="Application Header & Settings"
       >
         {/* Left side of banner */}
-        <div className="flex flex-row">
-          <h1 className="inline align-middle whitespace-nowrap uppercase font-thing h-full tracking-wider sm:text-xl sm:pt-2 p-1 bg-red-800 px-4 text-white">
+        <div className="flex flex-row w-full">
+          <h1 className="inline align-middle whitespace-nowrap uppercase font-bold h-full sm:text-xl sm:pt-2 p-1 bg-red-800 px-4 text-white">
             Virtual Bonang
           </h1>
           <InformationModal />
         </div>
 
         {/* Right side of banner */}
-        <div className="flex flex-row bg-red-800">
+        <div className="flex-row bg-red-800 hidden xs:flex">
           <KeybindVisibilityToggle state={{ showKeybinds, setShowKeybinds }} />
           <LarasSelector state={{ laras, setLaras }} />
         </div>
@@ -41,8 +41,9 @@ export default function Home() {
         <Bonang state={state} />
       </main>
 
-      <main className="mb-auto mt-auto block text-center text-3xl xs:hidden landscape:hidden">
-        Please orientate your device wide
+      <main className="mb-auto p-2 mt-auto block  uppercase font-bold text-center  xs:hidden landscape:hidden">
+        <p className="text-3xl font-sans">Please orientate your device wide</p>
+        <p className="mt-2 tracking-tight">The bonang is a wide instrument</p>
       </main>
       <Footer />
     </div>
