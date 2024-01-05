@@ -1,6 +1,18 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
+
+// configure kepatihan font
+import localFont from "next/font/local";
+const kepatihanFont = localFont({
+  src: "../../public/fonts/kepatihan.ttf",
+  weight: "400",
+  variable: "--font-kepatihan",
+});
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <main className={kepatihanFont.variable}>
+      <Component {...pageProps} />
+    </main>
+  );
 }

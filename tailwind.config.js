@@ -15,7 +15,7 @@ module.exports = {
         pulse: "pulse 0.1s ease-in-out",
       },
       fontFamily: {
-        kepatihan: ["KepatihanPro"],
+        kepatihan: ["var(--font-kepatihan)"],
       },
       keyframes: {
         pulse: {
