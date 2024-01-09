@@ -10,11 +10,14 @@ export default function InformationModal() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-full hidden xs:block aspect-square p-1 sm:p-2 bg-red-800 hover:bg-red-700 focus-visible:ring ring-black focus:bg-red-700 transition-color outline-none "
+        className="h-full w-8 sm:w-12 hidden xs:block aspect-square p-1 sm:p-2 bg-red-800 hover:bg-red-700 focus-visible:ring ring-black focus:bg-red-700 transition-color outline-none "
         aria-label="Open Application Instructions"
         role="button"
       >
-        <Icon svgData={infoIconSvgData} className="fill-white m-1" />
+        <Icon
+          svgData={infoIconSvgData}
+          className="fill-white m-1 not-sr-only"
+        />
       </button>
 
       {/* Modal Menu */}
