@@ -10,6 +10,7 @@ interface PotProps {
   src: string;
   keybind: string;
   showKeybind?: boolean;
+  ctx: AudioContext | undefined;
 }
 
 export default function BonangPot({
@@ -18,7 +19,7 @@ export default function BonangPot({
   keybind,
   showKeybind,
 }: PotProps) {
-  const startAudio = useAudio(src);
+  const startAudio = useAudio({ src });
 
   // register startSound() method on key press
   useKeyPress(keybind, () => startSound());

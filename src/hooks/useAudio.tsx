@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-export default function useAudio(src: string) {
+interface useAudioProps {
+  src: string;
+  context?: AudioContext;
+}
+
+export default function useAudio({ src, context }: useAudioProps) {
   const [audio, setAudio] = useState<HTMLAudioElement | undefined>();
   useEffect(() => setAudio(new Audio(src)), [src]);
 

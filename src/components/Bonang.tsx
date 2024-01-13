@@ -6,7 +6,7 @@ interface BonangProps {
   state: AppState;
 }
 export default function Bonang({ state }: BonangProps) {
-  const { laras, showKeybinds } = state;
+  const { laras, showKeybinds, audioContext } = state;
   return (
     <section className="flex flex-col align-middle">
       {bonangData[laras].map((row, i) => (
@@ -15,7 +15,12 @@ export default function Bonang({ state }: BonangProps) {
           key={i}
         >
           {row.map((pot) => (
-            <BonangPot {...pot} showKeybind={showKeybinds} key={pot.src} />
+            <BonangPot
+              {...pot}
+              ctx={audioContext}
+              showKeybind={showKeybinds}
+              key={pot.src}
+            />
           ))}
         </div>
       ))}

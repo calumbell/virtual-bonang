@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 declare global {
   interface Window {
@@ -10,9 +10,12 @@ declare global {
 // greatly reduce audio latency on iOS/Safari
 
 export default function useAudioContext() {
+  const [audioContext, setAudioContext] = useState<AudioContext | undefined>();
+
   useEffect(() => {
     if (!window) return;
     const AudioContext = window.AudioContext || window.webkitAudioContext;
-    const audioCtx = new AudioContext();
+    setAudioContext(new AudioContext());
   }, []);
+  return audioContext;
 }
