@@ -18,8 +18,9 @@ export default function BonangPot({
   src,
   keybind,
   showKeybind,
+  ctx,
 }: PotProps) {
-  const startAudio = useAudio({ src });
+  const startAudio = useAudio({ src, ctx });
 
   // register startSound() method on key press
   useKeyPress(keybind, () => startSound());

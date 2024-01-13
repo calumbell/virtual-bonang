@@ -2,18 +2,28 @@ import { useState, useEffect } from "react";
 
 interface useAudioProps {
   src: string;
-  context?: AudioContext;
+  ctx?: AudioContext;
 }
 
-export default function useAudio({ src, context }: useAudioProps) {
+export default function useAudio({ src, ctx }: useAudioProps) {
   const [audio, setAudio] = useState<HTMLAudioElement | undefined>();
+  const [source, setSource] = useState<
+    MediaElementAudioSourceNode | undefined
+  >();
+
   useEffect(() => setAudio(new Audio(src)), [src]);
+  useEffect(() => {
+    if (!ctx || !audio) return;
+    const node = ctx.createMediaElementSource(audio);
+    setSource(node);
+    node.connect(ctx.destination);
+    return () => node.disconnect(ctx.destination);
+  }, [audio, ctx]);
 
-  if (!audio) return () => {};
-
+  if (!audio || !ctx) return () => {};
   return () => {
     // To reduce clicking on retriggers, first fade out previous sound
-    const decrementVolume = () => (audio.volume /= 8);
+    const decrementVolume = () => (audio.volume /= 1);
     const interval = setInterval(decrementVolume, 1);
 
     // Wait ~10 ms for audio to fade out before restarting
