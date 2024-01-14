@@ -9,7 +9,7 @@ interface IconProps {
     paths: string[];
   };
   className: string;
-  refCallback: Dispatch<SetStateAction<SVGSVGElement | null>>;
+  refCallback?: Dispatch<SetStateAction<SVGSVGElement | null>>;
 }
 
 export default function Icon({ svgData, className, refCallback }: IconProps) {
