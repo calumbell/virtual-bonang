@@ -24,8 +24,7 @@ export default function BonangPot({
   useKeyPress(keybind, () => startSound());
 
   // set up animation
-  // const potElement = useRef<null | SVGSVGElement>(null);
-  const [potElement, setPotElemet] = useState<null | SVGSVGElement>(null);
+  const [potElement, setPotElement] = useState<SVGSVGElement | null>(null);
   const startAnimation = useAnimation({
     target: potElement as null | HTMLElement,
     animationClass: "animate-pulse",
@@ -39,7 +38,7 @@ export default function BonangPot({
       <Icon
         svgData={bonangSvgData}
         className="w-full transition-all"
-        svgRef={(svg: null | SVGSVGElement) => setPotElemet(svg)}
+        refCallback={setPotElement}
       />
       {/* screenreader alt for Bonang SVG */}
       <span className="sr-only">
