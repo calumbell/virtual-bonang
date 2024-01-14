@@ -9,11 +9,10 @@ export default function useClick(
     if (!ref.current) return;
 
     const onClick = (e: Event) => {
-      if (e.target !== ref.current) return;
       callback();
-      return () => ref.current?.removeEventListener("click", onClick);
+      return () => ref.current?.removeEventListener("mousedown", onClick);
     };
 
-    ref.current.addEventListener("click", onClick);
+    ref.current.addEventListener("mousedown", onClick);
   }, [ref, callback]);
 }
