@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Note } from "@/types";
 import { useAnimation, useAudio, useKeyPress } from "@/hooks";
 import { kepatihanSymbolToText } from "@/utils";
@@ -24,9 +24,9 @@ export default function BonangPot({
   useKeyPress(keybind, () => startSound());
 
   // set up animation
-  const potElement = useRef<null | SVGSVGElement>(null);
+  const [potElement, setPotElement] = useState<SVGSVGElement | null>(null);
   const startAnimation = useAnimation({
-    target: potElement.current as null | HTMLElement,
+    target: potElement as null | HTMLElement,
     animationClass: "animate-pulse",
   });
 
@@ -38,7 +38,7 @@ export default function BonangPot({
       <Icon
         svgData={bonangSvgData}
         className="w-full transition-all"
-        svgRef={potElement}
+        refCallback={setPotElement}
       />
       {/* screenreader alt for Bonang SVG */}
       <span className="sr-only">

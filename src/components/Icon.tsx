@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import { Dispatch, MutableRefObject, SetStateAction } from "react";
 
 interface IconProps {
   svgData: {
@@ -9,16 +9,17 @@ interface IconProps {
     paths: string[];
   };
   className: string;
-  svgRef?: MutableRefObject<SVGSVGElement | null>;
+  refCallback?: Dispatch<SetStateAction<SVGSVGElement | null>>;
 }
 
-export default function Icon({ svgData, className, svgRef }: IconProps) {
+export default function Icon({ svgData, className, refCallback }: IconProps) {
+  const ref = refCallback ? (svg: SVGSVGElement) => refCallback(svg) : null;
   return (
     <svg
       {...svgData.attributes}
       className={className}
       aria-hidden="true"
-      ref={svgRef}
+      ref={ref}
     >
       {svgData.paths.map((path, i) => (
         <path d={path} className="transition-all" key={i} />

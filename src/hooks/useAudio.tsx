@@ -1,23 +1,8 @@
-import { useState, useEffect } from "react";
+import { Howl } from "howler";
 
 export default function useAudio(src: string) {
-  const [audio, setAudio] = useState<HTMLAudioElement | undefined>();
-  useEffect(() => setAudio(new Audio(src)), [src]);
-
+  // generate audio node, rtn callback to play audio
+  const audio = new Howl({ src });
   if (!audio) return () => {};
-
-  return () => {
-    // To reduce clicking on retriggers, first fade out previous sound
-    const decrementVolume = () => (audio.volume /= 8);
-    const interval = setInterval(decrementVolume, 1);
-
-    // Wait ~10 ms for audio to fade out before restarting
-    setTimeout(() => {
-      clearInterval(interval);
-      audio.load();
-      audio.volume = 1;
-      audio.currentTime = 0;
-      audio.play();
-    }, 10);
-  };
+  return () => audio.play();
 }

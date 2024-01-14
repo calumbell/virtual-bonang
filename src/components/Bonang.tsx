@@ -12,10 +12,14 @@ export default function Bonang({ state }: BonangProps) {
       {bonangData[laras].map((row, i) => (
         <div
           className="grid grid-flow-col gap-2 my-2 justify-center z-0"
-          key={i}
+          key={laras + i}
         >
           {row.map((pot) => (
-            <BonangPot {...pot} showKeybind={showKeybinds} key={pot.src} />
+            <BonangPot
+              {...pot}
+              showKeybind={showKeybinds}
+              key={laras + pot.src}
+            />
           ))}
         </div>
       ))}
