@@ -9,7 +9,8 @@ interface IconProps {
     paths: string[];
   };
   className: string;
-  svgRef?: MutableRefObject<SVGSVGElement | null>;
+  svgRef: Function;
+  // svgRef?: MutableRefObject<SVGSVGElement | null>;
 }
 
 export default function Icon({ svgData, className, svgRef }: IconProps) {

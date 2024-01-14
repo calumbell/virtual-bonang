@@ -7,9 +7,7 @@ export default function useAudio(src: string) {
   if (!audio) return () => {};
 
   return () => {
-    // Wait ~10 ms for audio to fade out before restarting
     setTimeout(() => {
-      // audio.volume(1);
       audio.play();
     }, 10);
   };
