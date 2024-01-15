@@ -10,9 +10,11 @@ export default function useTouch(
     const onTouch = (e: Event) => {
       e.preventDefault(); // prevents also raising a mousedown event
       callback();
-      return () => ref.current?.removeEventListener("touchstart", onTouch);
     };
-
-    ref.current.addEventListener("touchstart", onTouch);
+    
+    // register event listener & cleanup
+    const element = ref.current;
+    element.addEventListener("touchstart", onTouch);
+    return () => element.removeEventListener("touchstart", onTouch);
   }, [ref, callback]);
 }

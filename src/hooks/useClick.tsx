@@ -7,12 +7,17 @@ export default function useClick(
 ) {
   useEffect(() => {
     if (!ref.current) return;
-
+    const element = ref.current;
     const onClick = (e: Event) => {
+      e.preventDefault();
       callback();
-      return () => ref.current?.removeEventListener("mousedown", onClick);
     };
 
-    ref.current.addEventListener("mousedown", onClick);
+    // register event listener & cleanup
+
+    element.addEventListener("mousedown", onClick);
+    return () => {
+      element.removeEventListener("mousedown", onClick);
+    };
   }, [ref, callback]);
 }
