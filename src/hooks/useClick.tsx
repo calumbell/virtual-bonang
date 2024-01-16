@@ -11,23 +11,23 @@ export default function useClick(
 
     // Event handler for executing callback function
     const onClick = (e: Event | KeyboardEvent) => {
-      e.preventDefault();
+      e.preventDefault(); // prevents focusing on element
       callback();
     };
+    element.addEventListener("mousedown", onClick);
 
     // Triggers a click when element is focused & spacebar is pressed
     const onFocusClick = (e: KeyboardEvent) => {
-      if (document.activeElement !== ref.current) return;
+      if (document.activeElement !== element) return;
       if (e.code !== "Space") return;
-      onClick(e as KeyboardEvent);
+      callback();
     };
+    window.addEventListener("keydown", onFocusClick);
 
-    // register event listener & cleanup
-    element.addEventListener("mousedown", onClick);
-    element.addEventListener("keydown", onFocusClick);
+    // clean-up
     return () => {
       element.removeEventListener("mousedown", onClick);
-      element.removeEventListener("keydown", onFocusClick);
+      window.removeEventListener("keydown", onFocusClick);
     };
   }, [ref, callback]);
 }
