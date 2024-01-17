@@ -1,6 +1,12 @@
 import { useRef, useState } from "react";
 import { Note } from "@/types";
-import { useAnimation, useAudio, useKeyPress } from "@/hooks";
+import {
+  useAnimation,
+  useAudio,
+  useClick,
+  useKeyPress,
+  useTouch,
+} from "@/hooks";
 import { kepatihanSymbolToText } from "@/utils";
 import { bonangSvgData } from "../../public/graphics";
 import Icon from "./Icon";
@@ -30,10 +36,15 @@ export default function BonangPot({
     animationClass: "animate-pulse",
   });
 
+  // register startStart() method on touch & mousedown
+  const btn = useRef(null);
+  useTouch(btn, () => startSound());
+  useClick(btn, () => startSound());
+
   return (
     <button
       className="w-full flex relative px-2 py-1 aspect-square rounded-full bg-red-50 flex-col justify-center outline-none focus-visible:ring ring-offset-4 ring-red-800"
-      onClick={startSound}
+      ref={btn}
     >
       <Icon
         svgData={bonangSvgData}

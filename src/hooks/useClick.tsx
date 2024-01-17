@@ -7,13 +7,27 @@ export default function useClick(
 ) {
   useEffect(() => {
     if (!ref.current) return;
+    const element = ref.current;
 
-    const onClick = (e: Event) => {
-      if (e.target !== ref.current) return;
+    // Event handler for executing callback function
+    const onClick = (e: Event | KeyboardEvent) => {
+      e.preventDefault(); // prevents focusing on element
       callback();
-      return () => ref.current?.removeEventListener("click", onClick);
     };
+    element.addEventListener("mousedown", onClick);
 
-    ref.current.addEventListener("click", onClick);
+    // Triggers a click when element is focused & spacebar is pressed
+    const onFocusClick = (e: KeyboardEvent) => {
+      if (document.activeElement !== element) return;
+      if (e.code !== "Space") return;
+      callback();
+    };
+    window.addEventListener("keydown", onFocusClick);
+
+    // clean-up
+    return () => {
+      element.removeEventListener("mousedown", onClick);
+      window.removeEventListener("keydown", onFocusClick);
+    };
   }, [ref, callback]);
 }

@@ -4,6 +4,7 @@ import useAppState from "./useAppState";
 import useAudio from "./useAudio";
 import useClick from "./useClick";
 import useKeyPress from "./useKeyPress";
+import useTouch from "./useTouch";
 
 export {
   useAnimation,
@@ -12,4 +13,5 @@ export {
   useAudioContext,
   useKeyPress,
   useClick,
+  useTouch,
 };
