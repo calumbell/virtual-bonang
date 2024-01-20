@@ -22,45 +22,62 @@ export default function InformationModal() {
 
       {/* Modal Menu */}
       {isOpen && (
-        <article
-          className="absolute bg-white/90 m-10 z-10 w-96 p-4 border-black border"
-          onClick={() => setIsOpen(false)}
-          aria-label="Application Instructions"
-          role="presentation"
-        >
-          <h2 className="text-center uppercase text-xl font-bold text-red-800">
-            Instructions
-          </h2>
-          <section
-            className="text-sm md:text-base outline-none focus-visible:ring ring-red-800"
-            tabIndex={0}
-          >
-            <h3 className="font-bold uppercase">To Play</h3>
-            <p className="mb-2">
-              Click on the pots below or use your keyboard (Q to U for the top
-              row, A to J for the bottom)
-            </p>
-            <h3 className="font-bold uppercase">What is the Bonang?</h3>
-            <p className="mb-2">
-              The Bonang is an instrument in the Javanese Gamelan. It is formed
-              of two rows of small tuned gong chimes arranged horizontally and
-              played with a pair of padded mallets.
-            </p>
+        <>
+          {/* shade over rest of page */}
+          <div
+            className="absolute w-screen h-screen sm:visible bg-gray-800/30 z-10"
+            onClick={() => setIsOpen(false)}
+          />
 
-            <h3 className="font-bold uppercase">Notes</h3>
-            <p className="mb-2">
-              Notes in gamelan are numbered from 1 to 7. A dot below or above
-              indicates the same note but at a high or lower register/octave.
-            </p>
-            <h3 className="font-bold uppercase">Laras</h3>
-            <p className="mb-2">
-              Laras can be loosely translated from Javanese as tuning system.
-              There are two laras in Javanese gamelan; laras slendro, which has
-              5 notes, and laras pelog, which has 7.
-            </p>
-          </section>
-        </article>
+          {/* modal content */}
+          <div
+            className="absolute bg-white/95 z-10 w-screen px-4 py-3 wide:w-screen sm:top-12 sm:w-2/5  border-red-800 border"
+            onClick={() => setIsOpen(false)}
+            aria-label="Application Instructions"
+            role="presentation"
+          >
+            <article
+              className="text-sm flex flex-col gap-2 wide:gap-1 md:text-base overflow-y-auto outline-none focus-visible:ring ring-red-800"
+              tabIndex={0}
+            >
+              {copy.map((paragraph, i) => (
+                <section key={i} className="text-sm md:text-base">
+                  <h2 className="font-bold text-red-800 text-lg wide:text-base font-serif">
+                    {paragraph.title}
+                  </h2>
+                  <p className="wide:text-sm">{paragraph.content}</p>
+                </section>
+              ))}
+            </article>
+          </div>
+        </>
       )}
     </>
   );
 }
+
+const copy = [
+  {
+    title: "Instructions",
+    content: `Click on the pots or use your keyboard (Q to U for the top
+      row, A to J for the bottom) to make music.`,
+  },
+  {
+    title: "What is the Bonang?",
+    content: `The Bonang is an instrument in the Javanese Gamelan. It is 
+    formed of two rows of small bronze gong chimes arranged in a wooden rack
+     and is played with a pair of padded mallets.`,
+  },
+
+  {
+    title: "Notes",
+    content: `Notes in gamelan are numbered from 1 to 7. A dot below or above
+    indicates the same note but at a high or lower register/octave.`,
+  },
+  {
+    title: "Laras",
+    content: `Laras is a Javanese word for tuning. There are two laras used in
+    gamelan music, SLENDRO & PELOG. A complete gamelan is usually a double set
+     of instruments, one for each laras.`,
+  },
+];

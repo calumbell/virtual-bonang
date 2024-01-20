@@ -11,8 +11,8 @@ const kepatihanFont = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={kepatihanFont.variable}>
+    <div className={kepatihanFont.variable}>
       <Component {...pageProps} />
-    </main>
+    </div>
   );
 }

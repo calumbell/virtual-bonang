@@ -36,7 +36,7 @@ export default function Home() {
       </header>
 
       <main
-        className="mb-auto mt-auto mx-5 hidden xs:block"
+        className="mb-auto mt-auto mx-5 hidden xs:block overflow-y-hidden"
         aria-label="Application"
       >
         <Bonang state={state} />
