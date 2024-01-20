@@ -31,7 +31,7 @@ export default function InformationModal() {
 
           {/* modal content */}
           <div
-            className="absolute bg-white/95 z-10 w-screen px-4 py-3 wide:w-screen sm:top-12 sm:w-2/5  border-red-800 border"
+            className="absolute bg-white/95 z-10 w-screen px-4 py-3 sm:top-12 sm:w-3/5 wide:top-8 wide:w-screen border-red-800 border overflow-x-hidden"
             onClick={() => setIsOpen(false)}
             aria-label="Application Instructions"
             role="presentation"
@@ -41,7 +41,7 @@ export default function InformationModal() {
               tabIndex={0}
             >
               {copy.map((paragraph, i) => (
-                <section key={i} className="text-sm md:text-base">
+                <section key={i} className="text-sm lg:text-base">
                   <h2 className="font-bold text-red-800 text-lg wide:text-base font-serif">
                     {paragraph.title}
                   </h2>
