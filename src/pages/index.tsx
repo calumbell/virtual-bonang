@@ -17,12 +17,12 @@ export default function Home() {
     <div className="flex flex-col w-screen h-screen overflow-hidden">
       <Seo />
       <header
-        className="flex justify-between h-8 sm:h-12 bg-red-800"
+        className="flex justify-between h-8 sm:h-12 wide:h-8 bg-red-800"
         aria-label="Application Header & Settings"
       >
         {/* Left side of banner */}
         <div className="flex flex-row w-full">
-          <h1 className="inline align-middle whitespace-nowrap uppercase font-bold h-full sm:text-xl sm:pt-2 p-1  px-4 text-white">
+          <h1 className="inline align-middle whitespace-nowrap uppercase font-bold h-full sm:text-xl wide:text-base wide:pt-1 sm:pt-2 p-1  px-4 text-white">
             Virtual Bonang
           </h1>
           <InformationModal />

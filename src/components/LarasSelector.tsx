@@ -28,7 +28,7 @@ export default function LarasSelector({ state }: LarasSelectorProps) {
       <div className="p-0 m-0 flex items-center">
         <label
           aria-hidden="true"
-          className="bg-white max-w-min uppercase whitespace-nowrap font-bold text-red-800 px-1 text-2xs sm:text-xs border-red-800"
+          className="bg-white max-w-min uppercase whitespace-nowrap font-bold text-red-800 px-1 text-2xs sm:text-xs wide:text-2xs border-red-800"
         >
           Laras / Tuning
         </label>
@@ -38,7 +38,7 @@ export default function LarasSelector({ state }: LarasSelectorProps) {
       {/* Drop Down Menu */}
       <select
         onChange={onLarasChange}
-        className="select rounded-none transition-color pr-6 sm:px-4 text-xs sm:w-64 sm:text-lg h-full hover:bg-red-700 text-white bg-red-800 tracking-wider outline-none focus-visible:bg-red-700 focus-visible:ring ring-black"
+        className="select rounded-none transition-color pr-6 w-40 wide:w-40 wide:pr-4 text-xs sm:w-64 sm:text-lg wide:text-xs h-full hover:bg-red-700 text-white bg-red-800 tracking-wider outline-none focus-visible:bg-red-700 focus-visible:ring ring-black"
         aria-label="Laras (Tuning) Dropdown"
         id="laras-selector"
       >
