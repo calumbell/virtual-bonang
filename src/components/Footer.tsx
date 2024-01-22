@@ -4,7 +4,7 @@ import { githubLogoSvgData } from "../../public/graphics";
 export default function Footer() {
   return (
     <footer
-      className="text-center h-4 xs:h-8 text-xs bg-red-800 text-white font-thin"
+      className="text-center h-4 xs:h-8 text-xs bg-red-800 text-white font-thin wide:hidden"
       aria-label="footer"
     >
       <span>Made with love by </span>

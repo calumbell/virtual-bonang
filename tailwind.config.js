@@ -8,14 +8,17 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontSize: {
-        "2xs": "0.5rem",
-      },
       animation: {
         pulse: "pulse 0.1s ease-in-out",
       },
       fontFamily: {
         kepatihan: ["var(--font-kepatihan)"],
+      },
+      fontSize: {
+        "2xs": "0.5rem",
+      },
+      height: {
+        screen: ["100vh /* fallback for older browers */", "100dvh"],
       },
       keyframes: {
         pulse: {
@@ -24,7 +27,11 @@ module.exports = {
         },
       },
       screens: {
+        wide: { raw: "(max-height: 428px)" },
         xs: "420px",
+      },
+      width: {
+        screen: ["100vw /* fallback for older browers */", "100dvw"],
       },
     },
   },

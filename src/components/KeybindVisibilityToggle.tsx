@@ -15,7 +15,7 @@ export default function KeybindVisibilityToggle({
 
   return (
     <button
-      className={`h-full w-8 sm:w-12 transition-colors mr-1 focus-visible:bg-red-700  hover:bg-red-700 outline-none focus-visible:ring ring-black ${
+      className={`h-full w-8 sm:w-12 wide:w-8 transition-colors mr-1 focus-visible:bg-red-700  hover:bg-red-700 outline-none focus-visible:ring ring-black ${
         showKeybinds ? "bg-gray-700" : "bg-red-800"
       }`}
       onClick={() => setShowKeybinds(!showKeybinds)}
