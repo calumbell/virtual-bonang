@@ -8,7 +8,7 @@ interface BonangProps {
 export default function Bonang({ state }: BonangProps) {
   const { laras, showKeybinds } = state;
   return (
-    <section className="flex flex-col align-middle">
+    <section className="flex flex-col align-middle overflow-hidden">
       {bonangData[laras].map((row, i) => (
         <div
           className="grid grid-flow-col gap-2 my-2 justify-center z-0"
