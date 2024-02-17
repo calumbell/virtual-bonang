@@ -1,14 +1,8 @@
 import { Howler } from "howler";
+import { useState } from "react";
 
-interface VolumeControlProps {
-  state: {
-    volume: number;
-    setVolume: Function;
-  };
-}
-
-export default function VolumeControl({ state }: VolumeControlProps) {
-  const { volume, setVolume } = state;
+export default function VolumeControl() {
+  const [volume, setVolume] = useState<number>(1.0);
   // amplitude perception is logarithmic, so we square the volume
   Howler.volume(volume * volume);
 

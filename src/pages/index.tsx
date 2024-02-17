@@ -33,7 +33,7 @@ export default function Home() {
         {/* Right side of banner */}
         <div className="flex-row bg-red-800 hidden xs:flex">
           <KeybindVisibilityToggle state={{ showKeybinds, setShowKeybinds }} />
-          <VolumeControl state={{ volume, setVolume }} />
+          <VolumeControl />
           <LarasSelector state={{ laras, setLaras }} />
         </div>
       </header>
