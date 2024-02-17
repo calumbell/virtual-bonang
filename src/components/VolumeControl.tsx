@@ -1,4 +1,4 @@
-import { useAppState } from "@/hooks";
+import { Howler } from "howler";
 
 interface VolumeControlProps {
   state: {
@@ -8,8 +8,10 @@ interface VolumeControlProps {
 }
 
 export default function VolumeControl({ state }: VolumeControlProps) {
-  console.log("render");
   const { volume, setVolume } = state;
+  // amplitude perception is logarithmic, so we square the volume
+  Howler.volume(volume * volume);
+
   return (
     <div>
       <label className="text-white">{(volume * 100).toFixed(0) + "%"}</label>
@@ -19,9 +21,7 @@ export default function VolumeControl({ state }: VolumeControlProps) {
         max={1}
         step={0.01}
         value={volume}
-        onChange={(event) => {
-          setVolume(event.target.valueAsNumber);
-        }}
+        onChange={(e) => setVolume(e.target.valueAsNumber)}
       />
     </div>
   );
