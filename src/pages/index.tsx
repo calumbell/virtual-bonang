@@ -5,14 +5,16 @@ import {
   InformationModal,
   KeybindVisibilityToggle,
   LarasSelector,
+  VolumeControl,
 } from "@/components";
 import { useAppState, useAudioContext } from "@/hooks";
 
 export default function Home() {
   const state = useAppState();
-  const { showKeybinds, setShowKeybinds, laras, setLaras } = state;
+  const { showKeybinds, setShowKeybinds, laras, setLaras, volume, setVolume } =
+    state;
   useAudioContext();
-
+  console.log("page rerender");
   return (
     <div className="flex flex-col w-screen h-screen overflow-hidden">
       <Seo />
@@ -31,6 +33,7 @@ export default function Home() {
         {/* Right side of banner */}
         <div className="flex-row bg-red-800 hidden xs:flex">
           <KeybindVisibilityToggle state={{ showKeybinds, setShowKeybinds }} />
+          <VolumeControl state={{ volume, setVolume }} />
           <LarasSelector state={{ laras, setLaras }} />
         </div>
       </header>

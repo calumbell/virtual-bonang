@@ -6,6 +6,7 @@ import InformationModal from "./InformationModal";
 import KeybindVisibilityToggle from "./KeybindVisibilityToggle";
 import LarasSelector from "./LarasSelector";
 import Seo from "./Seo";
+import VolumeControl from "./VolumeControl";
 
 export {
   Bonang,
@@ -16,4 +17,5 @@ export {
   KeybindVisibilityToggle,
   LarasSelector,
   Seo,
+  VolumeControl,
 };
