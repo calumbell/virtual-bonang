@@ -6,7 +6,7 @@ import { Icon } from "@/components";
 
 export default function VolumeControl() {
   const [volume, setVolume] = useState<number>(1.0);
-  const [isSliderVisible, setVisibility, toggleSlider] = useToggle(true);
+  const [isSliderVisible, setVisibility, toggleSlider] = useToggle(false);
   // amplitude perception is logarithmic, so we square the volume
   Howler.volume(volume * volume);
   return (
