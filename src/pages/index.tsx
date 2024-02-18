@@ -5,19 +5,20 @@ import {
   InformationModal,
   KeybindVisibilityToggle,
   LarasSelector,
+  VolumeControl,
 } from "@/components";
 import { useAppState, useAudioContext } from "@/hooks";
 
 export default function Home() {
   const state = useAppState();
-  const { showKeybinds, setShowKeybinds, laras, setLaras } = state;
+  const { showKeybinds, setShowKeybinds, laras, setLaras, volume, setVolume } =
+    state;
   useAudioContext();
-
   return (
     <div className="flex flex-col w-screen h-screen overflow-hidden">
       <Seo />
       <header
-        className="flex justify-between h-8 sm:h-12 wide:h-8 bg-red-800"
+        className="flex justify-between h-8 z-50 sm:h-12 wide:h-8 bg-red-800"
         aria-label="Application Header & Settings"
       >
         {/* Left side of banner */}
@@ -31,12 +32,13 @@ export default function Home() {
         {/* Right side of banner */}
         <div className="flex-row bg-red-800 hidden xs:flex">
           <KeybindVisibilityToggle state={{ showKeybinds, setShowKeybinds }} />
+          <VolumeControl />
           <LarasSelector state={{ laras, setLaras }} />
         </div>
       </header>
 
       <main
-        className="mb-auto mt-auto mx-5 hidden xs:block overflow-y-hidden"
+        className="mb-auto mt-auto mx-5 hidden xs:block z-10 overflow-y-hidden"
         aria-label="Application"
       >
         <Bonang state={state} />
