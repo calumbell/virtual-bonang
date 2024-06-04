@@ -23,7 +23,7 @@ export default function Home() {
       >
         {/* Left side of banner */}
         <div className="flex flex-row w-full">
-          <h1 className="inline font-serif tracking-wide align-middle whitespace-nowrap text-black font-bold h-full sm:text-3xl wide:text-base wide:pt-1 sm:pt-2 p-1 px-4`">
+          <h1 className="inline font-serif align-middle whitespace-nowrap text-black font-bold h-full sm:ml-4 sm:text-2xl wide:text-base wide:pt-1 sm:pt-2 p-1 px-4`">
             Virtual Bonang
           </h1>
           <InformationModal />
