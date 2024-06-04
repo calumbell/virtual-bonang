@@ -12,17 +12,24 @@ export default function VolumeControl() {
   return (
     <button
       aria-label="show volume slider"
-      className="w-8 mt-1 mr-1 sm:mt-0 sm:w-12 relative flex justify-center align-middle hover:bg-red-700 focus-visible:ring ring-black focus:bg-red-700 transition-color outline-none"
-      onClick={() => {
-        toggleSlider();
-      }}
+      className="wide:hidden w-8 mt-1 mr-1 sm:mt-0 group sm:w-12 relative flex justify-center align-middle focus-visible:ring ring-black  transition-color outline-none"
+      onClick={() => toggleSlider()}
     >
-      <Icon svgData={speakerSvgData} className="h-full p-1 inline fill-white" />
-      <label className="text-white hidden sm:block text-2xs transpar sm:text-xs absolute -bottom-1 mb-1">
-        {(volume * 100).toFixed(0) + "%"}
+      <Icon
+        svgData={speakerSvgData}
+        className={`h-full sm:mt-1 p-1 inline fill-red-800 group-hover:fill-gray-800 group-focus-visible:fill-gray-800 ${
+          isSliderVisible && "fill-gray-800"
+        }`}
+      />
+      <label
+        className={`text-black sm:block font-bold text-2xs sm:text-xs absolute -bottom-2 mt-1 mr-2 group-hover:visible ${
+          isSliderVisible ? "visible" : "invisible"
+        }`}
+      >
+        {(volume * 100).toFixed(0)}
       </label>
       {isSliderVisible && (
-        <div className="flex absolute top-12 w-16">
+        <div className="flex absolute -bottom-6 w-12 right-0.5">
           <input
             aria-label="Volume Slider"
             className="w-full range bg-gray-200 accent-red-800"
