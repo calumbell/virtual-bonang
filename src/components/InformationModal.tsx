@@ -10,7 +10,7 @@ export default function InformationModal() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-full w-8 group sm:w-12 wide:w-8 wide:h-8 hidden xs:block aspect-square p-1 sm:p-2 wide:p-1 focus-visible:ring ring-black transition-color outline-none "
+        className="h-full w-8 group sm:w-10 wide:w-8 wide:h-8 hidden xs:block aspect-square p-1 sm:p-2 sm:mt-1 wide:p-1 focus-visible:ring ring-black transition-color outline-none "
         aria-label="Open Application Instructions"
         role="button"
       >
