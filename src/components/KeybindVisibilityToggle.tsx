@@ -1,6 +1,3 @@
-import { keyboardSvgData } from "../../public/graphics";
-import { Icon } from "@/components";
-
 interface KeybindVisibilityToggleProps {
   state: {
     showKeybinds: boolean;
@@ -15,19 +12,13 @@ export default function KeybindVisibilityToggle({
 
   return (
     <button
-      className={`h-full w-8 sm:w-12 wide:w-8 transition-colors mr-1 focus-visible:bg-red-700  hover:bg-red-700 outline-none focus-visible:ring ring-black ${
-        showKeybinds ? "bg-gray-700" : "bg-red-800"
-      }`}
+      className={`h-full text-lg transition-colors font-bold mr-1 focus-visible:text-gray-800 sm:text-lg wide:text-xs hover:text-gray-800 outline-none focus-visible:ring ring-black`}
       onClick={() => setShowKeybinds(!showKeybinds)}
       aria-label="Toggle Keybind Visibility"
       aria-pressed={showKeybinds ? "true" : "false"}
       tabIndex={0}
     >
-      {/* Keyboard Icon */}
-      <Icon
-        svgData={keyboardSvgData}
-        className="fill-none m-1 stroke-white stroke-1 not-sr-only"
-      />
+      Keybinds
     </button>
   );
 }

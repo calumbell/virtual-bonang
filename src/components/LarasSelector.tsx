@@ -20,25 +20,11 @@ export default function LarasSelector({ state }: LarasSelectorProps) {
   };
 
   return (
-    <div
-      className="flex flex-col bg-red-800"
-      aria-label="Laras (Tuning) Selector"
-    >
-      {/* Label */}
-      <div className="p-0 m-0 flex items-center">
-        <label
-          aria-hidden="true"
-          className="bg-white max-w-min uppercase whitespace-nowrap font-bold text-red-800 px-1 text-2xs sm:text-xs wide:text-2xs border-red-800"
-        >
-          Laras / Tuning
-        </label>
-        <div className="bg-white w-full h-[2px] mb-1" />
-      </div>
-
+    <div className="flex flex-col" aria-label="Laras (Tuning) Selector">
       {/* Drop Down Menu */}
       <select
         onChange={onLarasChange}
-        className="select rounded-none transition-color pr-6 w-40 wide:w-40 wide:pr-4 text-xs sm:w-64 sm:text-lg wide:text-xs h-full hover:bg-red-700 text-white bg-red-800 tracking-wider outline-none focus-visible:bg-red-700 focus-visible:ring ring-black"
+        className="font-bold text-center rounded-none bg-transparent hover:text-gray-800 transition-color pr-6 w-20 wide:w-40 wide:pr-4 text-xs sm:w-64 sm:text-lg wide:text-xs h-full outline-none focus-visible:text-gray-800 focus-visible:ring ring-black"
         aria-label="Laras (Tuning) Dropdown"
         id="laras-selector"
       >
