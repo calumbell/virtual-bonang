@@ -10,13 +10,15 @@ export default function InformationModal() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-full w-8 sm:w-12 wide:w-8 wide:h-8 hidden xs:block aspect-square p-1 sm:p-2 wide:p-1 bg-red-800 hover:bg-red-700 focus-visible:ring ring-black focus:bg-red-700 transition-color outline-none "
+        className="h-full w-8 group sm:w-10 wide:w-8 wide:h-8 hidden xs:block aspect-square p-1 sm:p-2 sm:mt-1 wide:p-1 focus-visible:ring ring-black transition-color outline-none "
         aria-label="Open Application Instructions"
         role="button"
       >
         <Icon
           svgData={infoIconSvgData}
-          className="fill-white m-1 not-sr-only"
+          className={`fill-red-800 m-1 not-sr-only group-hover:fill-gray-800 ${
+            isOpen && "fill-gray-800"
+          }`}
         />
       </button>
 
@@ -45,7 +47,7 @@ export default function InformationModal() {
                   <h2 className="font-bold text-red-800 text-lg wide:text-base font-serif">
                     {paragraph.title}
                   </h2>
-                  <p className="wide:text-sm">{paragraph.content}</p>
+                  <p className="wide:text-sm text-black">{paragraph.content}</p>
                 </section>
               ))}
             </article>
