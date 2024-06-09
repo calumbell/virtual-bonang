@@ -7,13 +7,12 @@ import {
   LarasSelector,
   VolumeControl,
 } from "@/components";
-import { useAppState, useAudioContext } from "@/hooks";
+import { useAppState } from "@/hooks";
 
 export default function Home() {
   const state = useAppState();
   const { showKeybinds, setShowKeybinds, laras, setLaras, volume, setVolume } =
     state;
-  useAudioContext();
   return (
     <div className="flex flex-col w-screen h-screen overflow-hidden">
       <Seo />
