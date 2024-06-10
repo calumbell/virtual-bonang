@@ -5,6 +5,7 @@ import Icon from "./Icon";
 import InformationModal from "./InformationModal";
 import KeybindVisibilityToggle from "./KeybindVisibilityToggle";
 import LarasSelector from "./LarasSelector";
+import ModalMenu from "./ModalMenu";
 import Seo from "./Seo";
 import VolumeControl from "./VolumeControl";
 
@@ -16,6 +17,7 @@ export {
   InformationModal,
   KeybindVisibilityToggle,
   LarasSelector,
+  ModalMenu,
   Seo,
   VolumeControl,
 };

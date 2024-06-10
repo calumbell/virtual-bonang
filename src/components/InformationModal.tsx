@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { infoIconSvgData } from "../../public/graphics";
-import { Icon } from ".";
-import { useKeyPress } from "@/hooks";
+import { Icon, ModalMenu } from ".";
 
 export default function InformationModal() {
   const [isOpen, setIsOpen] = useState(false);
-  useKeyPress("Escape", () => setIsOpen(false));
+
   return (
     <>
       <button
@@ -24,35 +23,22 @@ export default function InformationModal() {
 
       {/* Modal Menu */}
       {isOpen && (
-        <>
-          {/* shade over rest of page */}
-          <div
-            className="absolute w-screen h-screen sm:visible bg-gray-800/30 z-10"
-            onClick={() => setIsOpen(false)}
-          />
-
-          {/* modal content */}
-          <div
-            className="absolute bg-white/95 z-10 w-screen px-4 py-3 sm:top-12 sm:w-3/5 wide:top-8 wide:w-screen border-red-800 border overflow-x-hidden"
-            onClick={() => setIsOpen(false)}
-            aria-label="Application Instructions"
-            role="presentation"
-          >
-            <article
-              className="text-sm flex flex-col gap-2 wide:gap-1 md:text-base overflow-y-auto outline-none focus-visible:ring ring-red-800"
-              tabIndex={0}
-            >
-              {copy.map((paragraph, i) => (
-                <section key={i} className="text-sm lg:text-base">
-                  <h2 className="font-bold text-red-800 text-lg wide:text-base font-serif">
-                    {paragraph.title}
-                  </h2>
-                  <p className="wide:text-sm text-black">{paragraph.content}</p>
-                </section>
-              ))}
-            </article>
-          </div>
-        </>
+        <ModalMenu
+          ariaLabel="Application Instructions"
+          close={() => setIsOpen(false)}
+        >
+          <h1 className="text-black justify-center font-serif text-xl">
+            About the <span className="font-bold text-3xl">Virtual Bonang</span>
+          </h1>
+          {copy.map((paragraph, i) => (
+            <section key={i} className="text-sm lg:text-base">
+              <h2 className="font-bold text-red-800 text-lg wide:text-base font-serif">
+                {paragraph.title}
+              </h2>
+              <p className="wide:text-sm text-black">{paragraph.content}</p>
+            </section>
+          ))}
+        </ModalMenu>
       )}
     </>
   );
